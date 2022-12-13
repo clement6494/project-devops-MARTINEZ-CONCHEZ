@@ -17,6 +17,8 @@
 
 ## Authors
 
-Adrien Martinez 
 
-Clément CONCHEZ-BOUEYTOU
+
+- Adrien Martinez 
+
+- Clément CONCHEZ-BOUEYTOU
