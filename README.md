@@ -37,6 +37,6 @@ Go to the root directory of the application (where `package.json` file located) 
 
 
 
-- Adrien Martinez: [mail](adrienmartinez@edu.ece.fr) 
+- Adrien Martinez: adrien.martinez@ece.edu.fr
 
-- Clément CONCHEZ-BOUEYTOU: [mail](clementconchezboueytou@edu.ece.fr)
+- Clément CONCHEZ-BOUEYTOU: clement.conchezboueytou@ece.edu.fr
