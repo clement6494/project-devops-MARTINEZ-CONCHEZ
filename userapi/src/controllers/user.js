@@ -20,4 +20,11 @@ module.exports = {
   // get: (username, callback) => {
   //   // TODO create this method
   // }
+  get: (username, callback) => {
+    // Check parameters
+    if(!user.username)
+      return callback(new Error("Please enter a user name"), null)
+    // get User info
+    return callback()
+  }
 }
