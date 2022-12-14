@@ -6,7 +6,9 @@ It is a basic NodeJS web application exposing REST API that creates and stores u
 
 1. Start a web server
 2. Create a user
-
+3. Read some user's data
+4. //TODO update a user
+5. //TODO delete a user
 ## Installation
 
 This application is written on NodeJS and it uses Redis database.
