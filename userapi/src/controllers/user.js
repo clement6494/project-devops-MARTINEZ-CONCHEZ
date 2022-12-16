@@ -17,7 +17,7 @@ module.exports = {
       if(!res) {
         // i.e. user doesn t exist
         // Save to DB
-        db.hmset(user.username, userObj, (err, res) => {
+        db.hset(user.username, userObj, (err, res) => {
           if (err) return callback(err, null)
           callback(null, res) // Return callback
         })
@@ -45,5 +45,28 @@ module.exports = {
         callback(new Error("user doesn t exist"), null ) 
 
     })
+  },
+
+  // Create Update method
+/*
+  update: () => {
+
   }
+*/
+  // Create Delete method
+  delete: (username, callback) => {
+    // Check parameters
+    if(!username)
+      return callback(new Error("Please enter a user name"), null)
+    // delete user Info
+    db.hdel(username, function(err , res) {
+      if (err) return callback(err, null)
+      if (res)
+        callback(null,res)
+      else 
+        callback(new Error("user doesn t exist"), null )
+    })
+
+  }
+
 }
