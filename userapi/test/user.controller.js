@@ -53,7 +53,7 @@ describe('User', () => {
       })
       // Try create same user a second time
       userController.create(user, (err, result) => {
-        expect(err).to.be.equal(null)
+        expect(err).to.not.be.equal(null)
         expect(result).to.be.equal(null)
         done()
       })     
@@ -76,7 +76,7 @@ describe('User', () => {
   //
   // })
 
-  descride('Get', ()=> {
+  describe('Get', ()=> {
 
     it('get a user by username', (done) => {
     // 1. First, create a user to make this unit test independent from the others
@@ -87,8 +87,8 @@ describe('User', () => {
       }
       userController.create(user, () => {  
       })
-   // 2. Then, check if the result of the get method is correct
-      userController.get(user, (err, result) => {
+    // 2. Then, check if the result of the get method is correct
+      userController.get(user.username , (err, result) => {
         expect(err).to.not.be.equal(null)
         expect(result).to.be.equal({
           firstname: 'Clement',
@@ -103,7 +103,7 @@ describe('User', () => {
     it ('can not get a user when it does not exist', (done) => {
       //Asks for anon existing user user
       userController.get('noUser', (err,result) => {
-        expect(err).to.not.be.equal(null)
+        expect(err).to.be.equal(null)
         expect(result).to.be.equal(null)
         done()
       })
@@ -112,6 +112,36 @@ describe('User', () => {
     
   })
 
+  //test for delete method
+  describe( 'Delete',() => {
+
+    it('delete a user by his username', (done) => {
+    // First create a user to make this unit test independant from the others
+      const user = {
+        username: 'cconchez',
+      firstname: 'Clement',
+      lastname: 'Conchez'
+      }
+      userController.create(user, () => {  
+      })
+    // 2. Then, check if the result of the delete method is correct
+      userController.delete(user.username, (err, result) => {
+        expect(err).to.be.equal(null)
+        expect(result).to.be.equal('1')
+        done()
+      })
+    })
+
+    it ('can not delete a user when it does not exist', (done) => {
+      //Asks for anon existing user user
+      userController.delete('noUser', (err,result) => {
+        expect(err).to.not.be.equal(null)
+        expect(result).to.be.equal(null)
+        done()
+      })
+    })
+
+  })
 
 
 })
