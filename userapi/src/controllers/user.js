@@ -34,7 +34,7 @@ module.exports = {
   // }
   get: (username, callback) => {
     // Check parameters
-    if(!user.username)
+    if(!username)
       return callback(new Error("Please enter a user name"), null)
     // get User info
     db.hgetall(username, function(err , res) {
