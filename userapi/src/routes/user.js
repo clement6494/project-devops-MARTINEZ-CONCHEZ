@@ -1,5 +1,5 @@
 const express = require('express')
-const user = require('../controllers/user')
+
 const userController = require('../controllers/user')
 
 const userRouter = express.Router()
@@ -29,6 +29,7 @@ userRouter
 
   .get('/:username', (req, resp, next)  => {
     const username = req.params.username
+
     userController.get(username, (err,res) => {
       let respObj
       if(err) {
@@ -42,7 +43,7 @@ userRouter
         status: "success",
         msg: res
       }
-      resp.status(200).json(resObj)
+      resp.status(200).json(respObj)
     })
 
   })

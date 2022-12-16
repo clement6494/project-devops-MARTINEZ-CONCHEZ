@@ -98,7 +98,7 @@ describe('User REST API', () => {
         .get('/user/noUser')
         .then((res) => {
           chai.expect(res).to.have.status(400)
-          chai.expect(rest.body.status).to.equal('error')
+          chai.expect(res.body.status).to.equal('error')
           chai.expect(res).to.be.json
           done()
 

@@ -76,7 +76,7 @@ describe('User', () => {
   //
   // })
 
-  descride ('Get', () => {
+  descride('Get', ()=> {
 
     it('get a user by username', (done) => {
     // 1. First, create a user to make this unit test independent from the others
