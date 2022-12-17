@@ -82,6 +82,7 @@ describe('User REST API', () => {
             chai.expect(res).to.have.status(200)
             chai.expect(res.body.status).to.equal('success')
             chai.expect(res).to.be.json
+            done()
           })
           .catch((err) => {
             throw err
@@ -98,7 +99,7 @@ describe('User REST API', () => {
         .get('/user/noUser')
         .then((res) => {
           chai.expect(res).to.have.status(400)
-          chai.expect(rest.body.status).to.equal('error')
+          chai.expect(res.body.status).to.equal('error')
           chai.expect(res).to.be.json
           done()
 
@@ -108,6 +109,58 @@ describe('User REST API', () => {
         })
     })
 
+
+  })
+
+      // test for the update method
+      describe( 'PUT /user' )
+
+
+    // test for the delete method
+  describe( 'DELETE /user' , () => {
+
+    it ('deletes a user  ', (done) => {
+      const user= {
+        username: 'cconchez',
+        firstname: 'Clement',
+        lastname: 'Conchez'
+      }
+      // creat the user
+      userController.create(user, () => {
+        // get the user
+        chai.request(app)
+          .del('/user' + user.username)
+          
+          .then((res) => {
+            chai.expect(res).to.have.status(200)
+            chai.expect(res.body.status).to.equal('success')
+            chai.expect(res).to.be.json
+            done()
+          })
+          .catch((err) => {
+            throw err
+          })
+
+        })
+        
+        
+    })
+
+    it (' can not delete a user that doesn t exist', (done) => {
+      // request a non existing user
+      chai.request(app)
+        .del('/user/noUser')
+        .then((res) => {
+          chai.expect(res).to.have.status(400)
+          chai.expect(res.body.status).to.equal('error')
+          chai.expect(res).to.be.json
+          done()
+
+        })
+        .catch((err) => {
+          throw err
+        })
+    })
 
   })
 
