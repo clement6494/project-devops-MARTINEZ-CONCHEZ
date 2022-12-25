@@ -1,0 +1,23 @@
+{
+  "name": "project-devops-martinez-conchez",
+  "version": "1.0.0",
+  "description": "crud API application with mongoDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clement6494/project-devops-MARTINEZ-CONCHEZ.git"
+  },
+  "keywords": [
+    "crud",
+    "mongodb"
+  ],
+  "author": "clement conchez, adrien martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clement6494/project-devops-MARTINEZ-CONCHEZ/issues"
+  },
+  "homepage": "https://github.com/clement6494/project-devops-MARTINEZ-CONCHEZ#readme"
+}
