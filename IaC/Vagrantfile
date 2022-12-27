@@ -12,8 +12,23 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "hashicorp/bionic64"
-
+  config.vm.define "nodejs_server" do |client|
+    client.vm.box = "hashicorp/bionic64"
+	config.vm.synced_folder "../userapi", "/home/userapi"
+	client.vm.network :private_network, ip: "20.20.20.2"
+    # Specify the VM specs when using the Virtualbox provisioner
+    client.vm.provider "virtualbox" do |vb|
+      vb.name =  "nodejs.server.local"
+      # VM RAM in MB
+      vb.memory = 4096
+      # VM CPUs
+      vb.cpus = 2
+	end
+	config.vm.provider "vmware_desktop" do |vmware|
+      vmware.vmx["memsize"] = "2048"
+      vmware.vmx["numvcpus"] = "1"
+    end
+end
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -43,7 +58,7 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+   
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -67,4 +82,5 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  
 end
