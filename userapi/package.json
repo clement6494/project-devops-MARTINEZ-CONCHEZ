@@ -4,7 +4,7 @@
   "description": "User API web application with CRUD functionnalities",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
     "test": "mocha test/*.js"
   },
   "author": "Adrien Martinez and Clement Conchez",
