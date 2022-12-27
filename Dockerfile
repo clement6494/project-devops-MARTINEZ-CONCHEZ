@@ -1,7 +1,7 @@
 FROM node:12
 
-WORKDIR /userapi/src
-COPY /userapi/package.json .
+WORKDIR /userapi
+COPY package.json .
 RUN npm install
 COPY . .
 
