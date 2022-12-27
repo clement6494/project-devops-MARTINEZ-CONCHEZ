@@ -47,11 +47,11 @@ jobs:
     
     #CD
     
-    deploy:
-      needs: test # verify CI is succefuly completed
-      runs-on: unbuntu-latest
-      steps:
-        -uses: actions/checkout@v2
+    #deploy:
+    #  needs: test # verify CI is succefuly completed
+    #  runs-on: unbuntu-latest
+    #  steps:
+    #    -uses: actions/checkout@v2
        #todo deployement with heroku
   
 
