@@ -13,9 +13,9 @@ describe('User', () => {
 
     it('create a new user', (done) => {
       const user = {
-        username: 'cconchez',
-        firstname: 'Clement',
-        lastname: 'Conchez'
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
       }
       userController.create(user, (err, result) => {
         expect(err).to.be.equal(null)
@@ -26,8 +26,8 @@ describe('User', () => {
 
     it('passing wrong user parameters', (done) => {
       const user = {
-        firstname: 'Clement',
-        lastname: 'Conchez'
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
       }
       userController.create(user, (err, result) => {
         expect(err).to.not.be.equal(null)
@@ -44,9 +44,9 @@ describe('User', () => {
 
     it('avoid creatin an existing user', (done) => {
       const user = {
-        username: 'cconchez',
-        firstname: 'Clement',
-        lastname: 'Conchez'
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
       }
       // Create user
       userController.create(user, () => {  
@@ -81,9 +81,9 @@ describe('User', () => {
     it('get a user by username', (done) => {
     // 1. First, create a user to make this unit test independent from the others
       const user = {
-        username: 'cconchez',
-      firstname: 'Clement',
-      lastname: 'Conchez'
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
       }
       userController.create(user, () => {  
       })
@@ -91,8 +91,8 @@ describe('User', () => {
       userController.get(user.username , (err, result) => {
         expect(err).to.not.be.equal(null)
         expect(result).to.be.equal({
-          firstname: 'Clement',
-          lastname: 'Conchez'
+          firstname: 'Sergei',
+        lastname: 'Kudinov'
         })
         done()
       })
@@ -118,9 +118,9 @@ describe('User', () => {
     it('delete a user by his username', (done) => {
     // First create a user to make this unit test independant from the others
       const user = {
-        username: 'cconchez',
-      firstname: 'Clement',
-      lastname: 'Conchez'
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
       }
       userController.create(user, () => {  
       })
