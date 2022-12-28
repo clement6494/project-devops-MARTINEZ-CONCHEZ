@@ -49,15 +49,13 @@ module.exports = {
 
   // Create Update method
 
-  update: (user, callback) => {
+  update: (username,user, callback) => {
     // Check parameters
     if(!user.username)
       return callback(new Error("Wrong user parameters"), null)
-     // update User schema
-     const userObj = {
-      firstname: user.firstname,
-      lastname: user.lastname,
-    }
+    
+
+    
 
     // TODO check if user already exists
     db.hgetall(user.username, function(err , res) {
@@ -65,7 +63,11 @@ module.exports = {
       if(res) {
         // i.e. user exists
         // update DB
-        db.hset(user.username, userObj, (err, res) => {
+        db.hset(username, [
+          'username', user.username,
+          'firstname', user.firstname,
+          'lastname', user.lastname,
+        ], (err, res) => {
           if (err) return callback(err, null)
           callback(null, res) // Return callback
         })
@@ -77,6 +79,8 @@ module.exports = {
 
   },
 
+
+  
   // Create Delete method
   delete: (username, callback) => {
     // Check parameters
