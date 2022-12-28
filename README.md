@@ -257,6 +257,7 @@ docker-compose up
 * And go to <http://localhost:5000/> on your browser.
 should expect:
 
+![image](images/5_localhost5000.png)
 
 # 6. Organization of Docker with Kubernetes
 
@@ -285,7 +286,7 @@ minikube status
 
 * Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file :
 
-*  run:
+* run:
 
 ```bash
 kubectl apply -f deployment.yml
