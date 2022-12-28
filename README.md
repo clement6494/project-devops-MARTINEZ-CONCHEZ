@@ -165,16 +165,110 @@ docker ps
 
 Docker Compose is a tool that was developed to help define and share multi-container applications. With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.
 
+## Configuration
+
+- Add to the [`docker-compose.yaml`](docker-compose.yaml) file the userapi image :
+example:
+
+```yaml
+version: '3'
+
+services:
+  redis:
+    image: redis
+
+  web:
+    build: .
+    ports:
+      - "5000:3000"
+    image: clement6494/userapi
+```
+
+## Test
+
+- Run the container :
+```bash
+docker-compose up
+```
+- And go to <http://localhost:5000/> on your browser.
+should expect:
+
 
 # 6. Organization of Docker with Kubernetes
 
+Kubernetes is an orchestration framework for software containers. Containers are a way to
+package and run code that's more efficient than virtual machines. Kubernetes provides the tools
+you need to run containerized applications in production and at scale.
+
+## Installation of Minikube
+
+* [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) following the instructions depending on your OS.
+
+* Start Minikube with:
+
+```bash
+minikube start
+```
+
+* Verify that everything is OK with:
+
+```bash
+minikube status
+```
+(if VT-d/AMD-x technology isn't enabled check is your processor supports it (VT for Intel, AMD for AMD) and then enable it viaa BIOS.)
+
+## Deploy our app using Manifest YAML files
+
+* Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file :
+
+*  run:
+
+```bash
+kubectl apply -f deployment.yml
+```
+* Once done, configure the [`./k8s/service.yml`](./k8s/service.yml) file :
+
+* run:
+
+```bash
+kubectl apply -f service.yml
+```
+
+* Check the deployment running with:
+  
+```bash
+kubectl get deployments
+```  
+* the state of services with:
+
+```bash
+kubectl get services
+```
+* And if the pods are running with:
+
+```bash
+kubectl get pods
+``` 
+[dashboard](https://minikube.sigs.k8s.io/docs/handbook/dashboard/) functionnality of Minikube gives a summary of the status through a dashboard running the following command will open a webpage:  
+
+```bash
+minikube dashboard
+```
+
+* Run the following command to open the port:
+```bash
+ kubectl port-forward service/userapi-service 5000:3000
+```
+
+The web application will be accessible at <http://localhost:5000/> :
 
 
 ##  Usefull links
 
-- MongoDB
-- Docker Hub
 
+- Redis
+- Docker Hub
+- Minikube
 
 ## Authors
 
