@@ -129,8 +129,40 @@ We use Dockerto package our app into standardized containers executable componen
 
 - build an image of our app and pushed it in Docker Hub .
 
+```bash
+docker build -t clement6494/userapi .      
+```
+("-t clement6494/userapi) is optional and respresent the name we give to the image)
+
+- In the [user-api](./user-api/) directory of the repo (i.e. where there is the [Dockerfile](/user-api/Dockerfile) ),run this in order to pull the image:
+
+```bash
+docker pull clement6494/userapi
+```
+- Check if  the image is correctly pulled to your local Docker images repo with the following command:
+
+```bash
+docker images
+```
+
+- Create the container:
+
+```bash
+docker run -p 12345:3000 -d clement6494/userapi
+```
+  
+- Check running containers, with the following command :
+
+```bash
+docker ps
+```  
+
+- Now you can open <http://localhost:12345/>, and the app should be launched:
+
+
 # 5. Organization of Container with Docker Compose
 
+Docker Compose is a tool that was developed to help define and share multi-container applications. With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.
 
 
 # 6. Organization of Docker with Kubernetes
