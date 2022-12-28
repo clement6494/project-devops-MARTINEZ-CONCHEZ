@@ -16,9 +16,7 @@ This project aim to implement a web API app using Redis and an environment in or
   - [Usage](#use-the-application)
   - [Test](#test-the-application)
 - [2. Application of CI/CD pipeline uning Heroku and GitHub Actions](#2-application-of-cicd-pipeline-uning-heroku-and-github-actions)
-  - [Installation](#installation)
   - [Configuration of the workflow](#configuration-of-the-workflow)
-  - [Test with Heroku](#test-with-heroku)
 - [3. Application of the IaC approach](#3-application-of-the-iac-approach)
   - [Installation](#installation-1)
   - [Creating, Configuring and Provisionning our VM](#creating-configuring-and-provisionning-our-vm)
@@ -131,6 +129,8 @@ We created an YAML file [.github/workflow/main.yml](./.github/workflows/main.yml
 
 # 3. Application of the IaC approach
 
+## Installation
+
 * Configure the virtual environment: to start go to your folder, open PowerShell as administrator and run this command to be able to use virtualbox (and not automatically Hyper-V) :
 
 ```
@@ -143,6 +143,8 @@ vagrant init hashicorp/bionic64
 ```
 ![image](images/3_secondcommand.PNG)
 
+## Creating, Configuring and Provisionning our VM
+
 * Next we complete the vargrantfile to create a VM in the /iac directory and we use the command :
 
 ```bash
@@ -153,6 +155,8 @@ vagrant up
 * It should have created the VM in VirtualBox:
 
 ![image](images/3_vmcreated.PNG)
+
+## Test
 
 * We can now test the connection with SSH with the following command :
 ```bash
