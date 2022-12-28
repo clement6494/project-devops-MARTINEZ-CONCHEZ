@@ -1,22 +1,22 @@
-const app = require('../src/index')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
+const app = require('../src/index')
 const db = require('../src/dbClient')
 const userController = require('../src/controllers/user')
 
 chai.use(chaiHttp)
 
 describe('User REST API', () => {
+
+  beforeEach(() => {
+    // Clean DB before each test
+    db.flushdb()
+  })
   
-    beforeEach(() => {
-      // Clean DB before each test
-      db.flushdb()
-    })
-    
-    after(() => {
-      app.close()
-      db.quit()
-    })
+  after(() => {
+    app.close()
+    db.quit()
+  })
 
   describe('POST /user', () => {
 
@@ -37,7 +37,6 @@ describe('User REST API', () => {
         })
         .catch((err) => {
            throw err
-           done()
         })
     })
     
@@ -57,29 +56,23 @@ describe('User REST API', () => {
         })
         .catch((err) => {
            throw err
-           done()
         })
     })
   })
 
-  // describe('GET /user', ()=> {
-  //   // TODO Create test for the get method
-  // })
-
-  describe( 'GET /user', () => {
-
-    it ('gets a user s firstname and lastname ', (done) => {
-      const user= {
+  describe('GET /user', () => {
+    
+    it('get an existing user', (done) => {
+      const user = {
         username: 'sergkudinov',
         firstname: 'Sergei',
         lastname: 'Kudinov'
       }
-      // creat the user
+      // Create a user
       userController.create(user, () => {
-        // get the user
+        // Get the user
         chai.request(app)
-          .get('/user' + user.username)
-          
+          .get('/user/' + user.username)
           .then((res) => {
             chai.expect(res).to.have.status(200)
             chai.expect(res.body.status).to.equal('success')
@@ -87,34 +80,26 @@ describe('User REST API', () => {
             done()
           })
           .catch((err) => {
-            throw err
-            done()
+             throw err
           })
-
-        })
-        
-        
+      })
     })
-
-    it (' can not get a user that doesn t exist', (done) => {
-      // request a non existing user
+    
+    it('can not get a user when it does not exis', (done) => {
       chai.request(app)
-        .get('/user/noUser')
+        .get('/user/invalid')
         .then((res) => {
           chai.expect(res).to.have.status(400)
           chai.expect(res.body.status).to.equal('error')
           chai.expect(res).to.be.json
           done()
-
         })
         .catch((err) => {
-          throw err
-          done()
+           throw err
         })
     })
-
-
   })
+
   
 
       // test for the update method
