@@ -122,7 +122,6 @@ describe('User REST API', () => {
           .delete('/user' + user.username)
           
           .then((res) => {
-            this.timeout(1000);
             chai.expect(res).to.have.status(200)
             chai.expect(res.body.status).to.equal('success')
             chai.expect(res).to.be.json
@@ -142,7 +141,6 @@ describe('User REST API', () => {
       chai.request(app)
         .delete('/user/invalid')
         .then((res) => {
-          this.timeout(1000);
           chai.expect(res).to.have.status(400)
           chai.expect(res.body.status).to.equal('error')
           chai.expect(res).to.be.json

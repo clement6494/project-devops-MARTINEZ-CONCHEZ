@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha test/*.js"
+    "test": "mocha --timeout 15000 test/*.js"
   },
   "author": "Adrien Martinez and Clement Conchez",
   "license": "",
