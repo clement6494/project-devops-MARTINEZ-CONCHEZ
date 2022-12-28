@@ -52,7 +52,7 @@ userRouter
   
 
   .put('/:username','/',(req,resp) => {
-    userController.set(req.body, (err,res) => {
+    userController.update(req.body, (err,res) => {
       let respObj
       if(err) {
         respObj = {
