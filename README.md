@@ -156,7 +156,8 @@ vagrant up
 ```bash
 vagrant ssh
 ``` 
-![image](3_fourthcommand.PNG)
+
+![image](3_fourthcommand.png)
 
 * We can naviguate through directories and see that our [userapi](/userapi/) folder in our local repository is shared with the VM. 
   
@@ -169,6 +170,7 @@ ls
 * The same folder in both the VM and the host :
 
 ![image](images/3_proofsync.PNG)
+
 ![image](images/3_userapifolder.PNG)
 
 # 4. Build Docker image of the application
