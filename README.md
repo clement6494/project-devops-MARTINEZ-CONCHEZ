@@ -32,6 +32,7 @@ This project aim to implement a web API app using Redis and an environment in or
 - [6. Organization of Docker with Kubernetes](#6-organization-of-docker-with-kubernetes)
   - [Installation of Minikube](#installation-of-minikube)
   - [Deploy our app using Manifest YAML files](#deploy-our-app-using-manifest-yaml-files)
+- [Usefull links](#usefull-links)
 - [Authors](#authors)
 
 
@@ -39,7 +40,7 @@ This project aim to implement a web API app using Redis and an environment in or
 
 # 1. Creation of the NodeJS web application
 
-## HInstallation
+## Installation
 
   This app is written with Nodejs and uses Redis database.
   
@@ -129,19 +130,145 @@ We use Dockerto package our app into standardized containers executable componen
 
 - build an image of our app and pushed it in Docker Hub .
 
+```bash
+docker build -t clement6494/userapi .      
+```
+("-t clement6494/userapi) is optional and respresent the name we give to the image)
+
+- In the [user-api](./user-api/) directory of the repo (i.e. where there is the [Dockerfile](/user-api/Dockerfile) ),run this in order to pull the image:
+
+```bash
+docker pull clement6494/userapi
+```
+- Check if  the image is correctly pulled to your local Docker images repo with the following command:
+
+```bash
+docker images
+```
+
+- Create the container:
+
+```bash
+docker run -p 12345:3000 -d clement6494/userapi
+```
+  
+- Check running containers, with the following command :
+
+```bash
+docker ps
+```  
+
+- Now you can open <http://localhost:12345/>, and the app should be launched:
+
+
 # 5. Organization of Container with Docker Compose
 
+Docker Compose is a tool that was developed to help define and share multi-container applications. With Compose, we can create a YAML file to define the services and with a single command, can spin everything up or tear it all down.
+
+## Configuration
+
+- Add to the [`docker-compose.yaml`](docker-compose.yaml) file the userapi image :
+example:
+
+```yaml
+version: '3'
+
+services:
+  redis:
+    image: redis
+
+  web:
+    build: .
+    ports:
+      - "5000:3000"
+    image: clement6494/userapi
+```
+
+## Test
+
+- Run the container :
+```bash
+docker-compose up
+```
+- And go to <http://localhost:5000/> on your browser.
+should expect:
 
 
 # 6. Organization of Docker with Kubernetes
 
+Kubernetes is an orchestration framework for software containers. Containers are a way to
+package and run code that's more efficient than virtual machines. Kubernetes provides the tools
+you need to run containerized applications in production and at scale.
+
+## Installation of Minikube
+
+* [Install Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) following the instructions depending on your OS.
+
+* Start Minikube with:
+
+```bash
+minikube start
+```
+
+* Verify that everything is OK with:
+
+```bash
+minikube status
+```
+(if VT-d/AMD-x technology isn't enabled check is your processor supports it (VT for Intel, AMD for AMD) and then enable it viaa BIOS.)
+
+## Deploy our app using Manifest YAML files
+
+* Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file :
+
+*  run:
+
+```bash
+kubectl apply -f deployment.yml
+```
+* Once done, configure the [`./k8s/service.yml`](./k8s/service.yml) file :
+
+* run:
+
+```bash
+kubectl apply -f service.yml
+```
+
+* Check the deployment running with:
+  
+```bash
+kubectl get deployments
+```  
+* the state of services with:
+
+```bash
+kubectl get services
+```
+* And if the pods are running with:
+
+```bash
+kubectl get pods
+``` 
+[dashboard](https://minikube.sigs.k8s.io/docs/handbook/dashboard/) functionnality of Minikube gives a summary of the status through a dashboard running the following command will open a webpage:  
+
+```bash
+minikube dashboard
+```
+
+* Run the following command to open the port:
+```bash
+ kubectl port-forward service/userapi-service 5000:3000
+```
+
+The web application will be accessible at <http://localhost:5000/> :
 
 
 ##  Usefull links
 
-- MongoDB
-- Docker Hub
 
+- Redis
+- Docker Hub
+- Minikube
 
 ## Authors
 
