@@ -127,7 +127,7 @@ describe('User', () => {
     // 2. Then, check if the result of the delete method is correct
       userController.delete(user.username, (err, result) => {
         expect(err).to.be.equal(null)
-        expect(result).to.be.equal(null)
+        expect(result).to.be.equal('1')
         done()
       })
     })

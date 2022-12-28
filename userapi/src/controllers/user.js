@@ -83,7 +83,7 @@ module.exports = {
     if(!username)
       return callback(new Error("Please enter a user name"), null)
     // delete user Info
-    db.hdel(username, function(err , res) {
+    db.hgetall(username, function(err , res) {
       if (err) return callback(err, null)
       if (res)
         callback(null,res)
