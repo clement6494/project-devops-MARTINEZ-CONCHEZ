@@ -35,6 +35,13 @@ This project aim to implement a web API app using Redis and an environment in or
 - [Usefull links](#usefull-links)
 - [Authors](#authors)
 
+# Before starting
+
+To clone the repository :
+
+```bash
+https://github.com/clement6494/project-devops-MARTINEZ-CONCHEZ.git
+```
 
 ## Instructions
 
