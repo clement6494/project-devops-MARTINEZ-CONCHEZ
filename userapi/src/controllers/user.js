@@ -49,7 +49,7 @@ module.exports = {
 
   // Create Update method
 
-  update: (username,user, callback) => {
+  update: (user, callback) => {
     // Check parameters
     if(!user.username)
       return callback(new Error("Wrong user parameters"), null)
@@ -63,7 +63,7 @@ module.exports = {
       if(res) {
         // i.e. user exists
         // update DB
-        db.hset(username, [
+        db.hset(user.username, [
           'username', user.username,
           'firstname', user.firstname,
           'lastname', user.lastname,
