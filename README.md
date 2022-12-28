@@ -87,7 +87,8 @@ After, if you go to <http://localhost:3000/user/sergkudinov>, with "cconchez" be
 {"status":"success","msg":{"firstname":"sergei","lastname":"kudinov"}}
 ```
 
-You can also use POST, GET , UPDDATE and DELETE.
+You can also use POST, GET , and DELETE.
+UPDATE wasn't finished because we didn't undersood well what was the ID in the model given of username,firstname,lastname. So we didn't know what souldn't be change and used as ID.
 
 ## Test the application 
 
