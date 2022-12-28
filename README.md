@@ -113,6 +113,6 @@ All 12 tests should be passed :
 
 
 
-- Adrien Martinez: adrien.martinez@ece.edu.fr
+- Adrien Martinez: <adrien.martinez@ece.edu.fr> - ING4 gp5
 
-- Clément CONCHEZ-BOUEYTOU: clement.conchezboueytou@ece.edu.fr
+- Clément CONCHEZ-BOUEYTOU: <clement.conchezboueytou@ece.edu.fr> - ING4 gp5
