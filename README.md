@@ -134,21 +134,37 @@ Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 ```bash
 vagrant init hashicorp/bionic64
 ```
-![image](images/3_secondcommand.png)
+![image](images/images/3_secondcommand.png)
 
-Next we complete the vargrantfile to create a VM in the /iac directory and we use the command :
+* Next we complete the vargrantfile to create a VM in the /iac directory and we use the command :
 
 ```bash
 vagrant up
 ```
 ![image](images/3_thirdcommand.png)
 
-It should have created the VM in VirtualBox
+* It should have created the VM in VirtualBox
 
 ![image](images/3_vmcreated.png)
 
-We can now test the connection with SSH and the following command:
+* We can now test the connection with SSH and the following command:
+```bash
+vagrant ssh
+``` 
+![image](images/3_thirdcommand.PNG)
 
+* We can naviguate through directories and see that our [userapi](/userapi/) folder in our local repository is shared with the VM. 
+  
+* Let's check in the folder exists in the VM: 
+```bash
+cd ..
+cd user-api/
+ls
+```   
+* The same folder in both the VM and the host :
+
+![image](images/3_proofsync.PNG)
+![image](images/3_userapifolder.PNG)
 
 # 4. Build Docker image of the application
 
@@ -163,14 +179,20 @@ We use Dockerto package our app into standardized containers executable componen
 - build an image of our app and pushed it in Docker Hub .
 
 ```bash
-docker build -t clement6494/userapi .      
+docker build -t ad123450/userapi .      
 ```
-("-t clement6494/userapi) is optional and respresent the name we give to the image)
+("-t ad123450/userapi) is optional and respresent the name we give to the image (userapi) and the user (ad123450)
+
+![image](images/4_exemplebuiltdockerimage.png)
+
+You should see this in you Docker Destop:
+
+![image](images/4_dockerdesktopimage.png)
 
 - In the [userapi](./userapi/) directory of the repo (i.e. where there is the [Dockerfile](/userapi/Dockerfile) ),run this in order to pull the image:
 
 ```bash
-docker pull clement6494/userapi
+docker pull ad123450/userapi
 ```
 - Check if  the image is correctly pulled to your local Docker images repo with the following command:
 
@@ -181,17 +203,20 @@ docker images
 - Create the container:
 
 ```bash
-docker run -p 12345:3000 -d clement6494/userapi
+docker run -p 12345:3000 -d ad123450/userapi
 ```
-  
-- Check running containers, with the following command :
+![image](images/4_dockerrunimage.png)
+
+- To check running containers open another powershell page with our folder in with the following command  :
 
 ```bash
 docker ps
 ```  
+![image](images/4_verifycontainerworking.png)
 
 - Now you can open <http://localhost:12345/>, and the app should be launched:
-
+- 
+![image](images/4_resultimageonlocalhost12345.png)
 
 # 5. Organization of Container with Docker Compose
 
