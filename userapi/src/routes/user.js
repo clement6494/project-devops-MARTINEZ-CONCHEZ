@@ -28,7 +28,7 @@ userRouter
   //   const username = req.params.username
   // })
 
-  .get('/:username', (req, resp, next)  => {
+  .get('/:username', (req, resp)  => {
     const username = req.params.username
 
     userController.get(username, (err,res) => {
@@ -49,8 +49,10 @@ userRouter
 
   })
 
-  .put('/', (req, resp) => {
-    userController.put(req.body, (err, res) => {
+  
+
+  .put('/:username','/',(req,resp) => {
+    userController.update(req.body, (err,res) => {
       let respObj
       if(err) {
         respObj = {
@@ -63,14 +65,16 @@ userRouter
         status: "success",
         msg: res
       }
-      resp.status(201).json(respObj)
+      resp.status(200).json(respObj)
     })
+
+
   })
 
   .delete('/:username',(req,resp) => {
-    const usertodelete = req.params.username   // will only delete username and so the route of access to account need to dele namm firstname
+    const usertodelete = req.params.username  
 
-    userController.delete(usertodelete, (err,res) => {
+    userController.del(usertodelete, (err,res) => {
       let respObj
       if(err) {
         respObj = {
