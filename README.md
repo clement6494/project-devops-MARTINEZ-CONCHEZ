@@ -97,11 +97,36 @@ npm run test
 ``` 
 All 12 tests should be passed :  
 
-# 2. Application of CI
+# 2. Application of CI/CD pipeline using GitHub Actions and Heroku
 
-## Installation
+- Continuous Integration is done with **GitHub Actions** :
+  CI builds automatically and tests our project.
+
+- Continuous Delivery using **Heroku** :
+  CD shoulds deploy the project.
+  To link the Github repo to Heroku, we added a secret key named {secrets.HEROKU_API_KEY} .
+  (only theorical, we didn't trusted the app enough to give our credit card inormations so we couldn't test it out)
+
 
 ## Configuration of the workflow
+
+We created an YAML file [.github/workflow/main.yml](./.github/workflows/main.yml)
+
+
+# 3. Application of the IaC approach
+
+
+
+# 4. Build Docker image of the application
+
+
+# 5. Organization of Container with Docker Compose
+
+
+
+# 6. Organization of Docker with Kubernetes
+
+
 
 ##  Usefull links
 
