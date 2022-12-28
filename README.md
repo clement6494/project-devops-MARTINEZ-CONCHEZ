@@ -51,11 +51,9 @@ https://github.com/clement6494/project-devops-MARTINEZ-CONCHEZ.git
 
   This app is written with Nodejs and uses Redis database.
   
-  1 * [install NodeJs](https://nodejs.org/en/download/)
+  * 1) [install NodeJs](https://nodejs.org/en/download/)
   
-  2 * [install REDIS](https://redis.io/download)
-  
-  3 * Install application
+  * 2) [install REDIS](https://redis.io/download)
 
 Go to the [userapi](./userapi/) directory of the application (where `package.json` file located) and run:
 
@@ -65,7 +63,7 @@ Go to the [userapi](./userapi/) directory of the application (where `package.jso
 ![image](images/1_npminstall.png)
 
 ## Use the application
-  1 * start a server
+ * 1) Start a server
   
   From the [userapi](./user-api/) directory of the repository, run:
 
@@ -78,7 +76,7 @@ npm run start
 
 ![image](images/1_localhost3000.png)
 
-* To create a user, send the curl POST request to the application with the user data:
+* 2) To create a user, send the curl POST request to the application with the user data:
 
 ```bash
 curl --header "Content-Type: application/json" \
