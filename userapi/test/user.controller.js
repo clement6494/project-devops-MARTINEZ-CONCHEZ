@@ -41,23 +41,25 @@ describe('User', () => {
     //   // Warning: the user already exists
     //   done()
     // })
-
-    it('avoid creatin an existing user', (done) => {
+  
+    it('avoid creating an existing user', (done)=> {
       const user = {
         username: 'sergkudinov',
         firstname: 'Sergei',
         lastname: 'Kudinov'
       }
-      // Create user
-      userController.create(user, () => {  
+      // Create a user
+      userController.create(user, () => {
+        // Create the same user again
+        userController.create(user, (err, result) => {
+          expect(err).to.not.be.equal(null)
+          expect(result).to.be.equal(null)
+          done()
+        })
       })
-      // Try create same user a second time
-      userController.create(user, (err, result) => {
-        expect(err).to.not.be.equal(null)
-        expect(result).to.be.equal(null)
-        done()
-      })     
     })
+
+
   })
 
   // TODO Create test for the get method
@@ -76,41 +78,39 @@ describe('User', () => {
   //
   // })
 
+
   describe('Get', ()=> {
 
     it('get a user by username', (done) => {
-    // 1. First, create a user to make this unit test independent from the others
       const user = {
         username: 'sergkudinov',
         firstname: 'Sergei',
         lastname: 'Kudinov'
       }
-      userController.create(user, () => {  
-      })
-    // 2. Then, check if the result of the get method is correct
-      userController.get(user.username , (err, result) => {
-        expect(err).to.not.be.equal(null)
-        expect(result).to.be.deep.equal({
-          firstname: 'Sergei',
-        lastname: 'Kudinov'
+      // Create a user
+      userController.create(user, () => {
+        // Get an existing user
+        userController.get(user.username, (err, result) => {
+          expect(err).to.be.equal(null)
+          expect(result).to.be.deep.equal({
+            firstname: 'Sergei',
+            lastname: 'Kudinov'
+          })
+          done()
         })
-        done()
       })
     })
-
-
-
-    it ('can not get a user when it does not exist', (done) => {
-      //Asks for anon existing user user
-      userController.get('noUser', (err,result) => {
-        expect(err).to.be.equal(null)
+  
+    it('can not get a user when it does not exist', (done) => {
+      userController.get('invalid', (err, result) => {
+        expect(err).to.not.be.equal(null)
         expect(result).to.be.equal(null)
         done()
       })
     })
-
-    
+  
   })
+
 
   //test for delete method
   describe( 'Delete',() => {
