@@ -129,7 +129,7 @@ We created an YAML file [.github/workflow/main.yml](./.github/workflows/main.yml
 
 # 3. Application of the IaC approach
 
-* Configure the virtual environment: to start go to your folder, open a PowerShell as administrator and run this command to use virtualbox:
+* Configure the virtual environment: to start go to your folder, open PowerShell as administrator and run this command to be able to use virtualbox (and not automatically Hyper-V):
 
 ```
 Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
