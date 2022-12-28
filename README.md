@@ -158,7 +158,7 @@ vagrant up
 ```bash
 vagrant ssh
 ``` 
-![image](images/3_thirdcommand.PNG)
+![image](3_fourthcommand.PNG)
 
 * We can naviguate through directories and see that our [userapi](/userapi/) folder in our local repository is shared with the VM. 
   
