@@ -55,6 +55,7 @@ Go to the [userapi](./userapi/) directory of the application (where `package.jso
   ```bash
   npm install 
   ```
+![image](images/1_npminstall.png)
 
 ## Use the application
   1 - start a server
@@ -64,8 +65,11 @@ Go to the [userapi](./userapi/) directory of the application (where `package.jso
 ```bash
 npm run start
 ```
-    
+![image](images/1_npmrunstart.png)
+
 <http://localhost:3000> should be accessible and our web application will run (make sure to have the Redis server open):
+
+![image](images/1_localhost3000.png)
 
 * To create a user, send the curl POST request to the application with the user data:
 
@@ -75,17 +79,20 @@ curl --header "Content-Type: application/json" \
   --data '{"username":"sergkudinov", "firstname":"sergei", "lastname":"kudinov"}' \
   http://localhost:3000/user
 ```
+![image](images/1_curlPOST.png)
+
 It should output:
 
 ```bash
 {"status":"success","msg":"OK"}
 ```  
 
-After, if you go to <http://localhost:3000/user/sergkudinov>, with "cconchez" being the username that you had in your POST data, it will display in the browser the following, with correspondance to the data that you posted:  
+After, if you go to <http://localhost:3000/user/sergkudinov>, with "sergkudinov" being the username that you had in your POST data, it will display in the browser the following, with correspondance to the data that you posted:  
 
 ```bash
 {"status":"success","msg":{"firstname":"sergei","lastname":"kudinov"}}
 ```
+![image](images/1_localhost3000usersergkudinov.png)
 
 You can also use POST, GET , and DELETE.
 UPDATE wasn't finished because we didn't undersood well what was the ID in the model given of username,firstname,lastname. So we didn't know what souldn't be change and used as ID.
@@ -117,6 +124,28 @@ We created an YAML file [.github/workflow/main.yml](./.github/workflows/main.yml
 
 # 3. Application of the IaC approach
 
+* Configure the virtual environment: to start go to your folder, open a PowerShell as administrator and run this command to use virtualbox:
+
+```
+Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+![image](images/3_firstcommand.PNG)
+
+```bash
+vagrant init hashicorp/bionic64
+```
+![image](images/3_secondcommand.PNG)
+
+Next we complete the vargrantfile to create a VM in the /iac directory and we use the command :
+
+```bash
+vagrant up
+```
+![image](images/3_thirdcommand.PNG)
+
+It should have created the VM in VirtualBox
+
+![image](images/3_vmcreated.PNG)
 
 
 # 4. Build Docker image of the application
