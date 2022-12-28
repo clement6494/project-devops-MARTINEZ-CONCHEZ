@@ -129,23 +129,25 @@ We created an YAML file [.github/workflow/main.yml](./.github/workflows/main.yml
 ```
 Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 ```
-![image](images/3_firstcommand.PNG)
+![image](images/3_firstcommand.png)
 
 ```bash
 vagrant init hashicorp/bionic64
 ```
-![image](images/3_secondcommand.PNG)
+![image](images/3_secondcommand.png)
 
 Next we complete the vargrantfile to create a VM in the /iac directory and we use the command :
 
 ```bash
 vagrant up
 ```
-![image](images/3_thirdcommand.PNG)
+![image](images/3_thirdcommand.png)
 
 It should have created the VM in VirtualBox
 
-![image](images/3_vmcreated.PNG)
+![image](images/3_vmcreated.png)
+
+We can now test the connection with SSH and the following command:
 
 
 # 4. Build Docker image of the application
