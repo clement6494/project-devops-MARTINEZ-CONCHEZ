@@ -55,7 +55,7 @@ https://github.com/clement6494/project-devops-MARTINEZ-CONCHEZ.git
   
   * 2) [install REDIS](https://redis.io/download)
 
-Go to the [userapi](./userapi/) directory of the application (where `package.json` file located) and run:
+Go to the [userapi](./userapi/) directory of the application (where `package.json` file located) and run :
 
   ```bash
   npm install 
@@ -65,18 +65,18 @@ Go to the [userapi](./userapi/) directory of the application (where `package.jso
 ## Use the application
  * 1) Start a server
   
-  From the [userapi](./user-api/) directory of the repository, run:
+  From the [userapi](./user-api/) directory of the repository, use the command below:
 
 ```bash
 npm run start
 ```
 ![image](images/1_npmrunstart.png)
 
-<http://localhost:3000> should be accessible and our web application will run (make sure to have the Redis server open):
+<http://localhost:3000> should be accessible and our web application will run (make sure to have the Redis server open) :
 
 ![image](images/1_localhost3000.png)
 
-* 2) To create a user, send the curl POST request to the application with the user data:
+* 2) To create a user, send the curl POST request to the application with the user data :
 
 ```bash
 curl --header "Content-Type: application/json" \
@@ -92,7 +92,7 @@ It should output:
 {"status":"success","msg":"OK"}
 ```  
 
-After, if you go to <http://localhost:3000/user/sergkudinov>, with "sergkudinov" being the username that you had in your POST data, it will display in the browser the following, with correspondance to the data that you posted:  
+After, if you go to <http://localhost:3000/user/sergkudinov>, with "sergkudinov" being the username that you had in your POST data, it will display in the browser the following, with correspondance to the data that you posted :  
 
 ```bash
 {"status":"success","msg":{"firstname":"sergei","lastname":"kudinov"}}
@@ -104,7 +104,7 @@ UPDATE wasn't finished because we didn't undersood well what was the ID in the m
 
 ## Test the application 
 
-Go to the [userapi](./userapi/) directory of the application (where `package.json` file located) and run:
+Go to the [userapi](./userapi/) directory of the application (where `package.json` file located) and run the command below:
 
 ```bash
 npm run test
@@ -129,7 +129,7 @@ We created an YAML file [.github/workflow/main.yml](./.github/workflows/main.yml
 
 # 3. Application of the IaC approach
 
-* Configure the virtual environment: to start go to your folder, open a PowerShell as administrator and run this command to use virtualbox:
+* Configure the virtual environment: to start go to your folder, open PowerShell as administrator and run this command to be able to use virtualbox (and not automatically Hyper-V) :
 
 ```
 Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
@@ -152,7 +152,7 @@ vagrant up
 
 ![image](images/3_vmcreated.PNG)
 
-* We can now test the connection with SSH and the following command:
+* We can now test the connection with SSH with the following command :
 ```bash
 vagrant ssh
 ``` 
@@ -160,7 +160,7 @@ vagrant ssh
 
 * We can naviguate through directories and see that our [userapi](/userapi/) folder in our local repository is shared with the VM. 
   
-* Let's check in the folder exists in the VM: 
+* Let's check in the folder exists in the VM : 
 ```bash
 cd ..
 cd user-api/
@@ -195,32 +195,32 @@ You should see this in you Docker Destop:
 
 ![image](images/4_dockerdesktopimage.png)
 
-* In the [userapi](./userapi/) directory of the repo (i.e. where there is the [Dockerfile](/userapi/Dockerfile) ),run this in order to pull the image:
+* In the [userapi](./userapi/) directory of the repo (i.e. where there is the [Dockerfile](/userapi/Dockerfile) ),run this in order to pull the image :
 
 ```bash
 docker pull ad123450/userapi
 ```
-* Check if  the image is correctly pulled to your local Docker images repo with the following command:
+* Check if  the image is correctly pulled to your local Docker images repo with the following command :
 
 ```bash
 docker images
 ```
 
-* Create the container:
+* Create the container :
 
 ```bash
 docker run -p 12345:3000 -d ad123450/userapi
 ```
 ![image](images/4_dockerrunimage.png)
 
-* To check running containers open another powershell page with our folder in with the following command  :
+* To check running containers open another powershell page with our folder in with the following command :
 
 ```bash
 docker ps
 ```  
 ![image](images/4_verifycontainerworking.png)
 
-* Now you can open <http://localhost:12345/>, and the app should be launched:
+* Now you can open <http://localhost:12345/>, and the app should be launched :
 
 ![image](images/4_resultimageonlocalhost12345.png)
 
@@ -292,40 +292,41 @@ kubectl apply -f deployment.yml
 ```
 * Once done, configure the [`./k8s/service.yml`](./k8s/service.yml) file :
 
-* run:
+* run :
 
 ```bash
 kubectl apply -f service.yml
 ```
 
-* Check the deployment running with:
+* Check the deployment running with :
   
 ```bash
 kubectl get deployments
 ```  
-* the state of services with:
+* the state of services with :
 
 ```bash
 kubectl get services
 ```
-* And if the pods are running with:
+* And if the pods are running with :
 
 ```bash
 kubectl get pods
 ``` 
-[dashboard](https://minikube.sigs.k8s.io/docs/handbook/dashboard/) functionnality of Minikube gives a summary of the status through a dashboard running the following command will open a webpage:  
+[dashboard](https://minikube.sigs.k8s.io/docs/handbook/dashboard/) functionnality of Minikube gives a summary of the status through a dashboard running the following command will open a webpage :  
 
 ```bash
 minikube dashboard
 ```
 
-* Run the following command to open the port:
+* Run the following command to open the port :
 ```bash
  kubectl port-forward service/userapi-service 5000:3000
 ```
 
 The web application will be accessible at <http://localhost:5000/> :
-
+ 
+![image](images/6_localhost30005000.PNG)
 
 ##  Usefull links
 
