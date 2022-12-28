@@ -119,6 +119,15 @@ We created an YAML file [.github/workflow/main.yml](./.github/workflows/main.yml
 
 # 4. Build Docker image of the application
 
+We use Dockerto package our app into standardized containers executable components combining the source code of the app with an OS, libraries and dependencies required to run our code throught any environment.
+
+## Installation
+
+  - [Docker Desktop](https://www.docker.com/get-started)
+  
+## Usage
+
+- build an image of our app and pushed it in Docker Hub .
 
 # 5. Organization of Container with Docker Compose
 
