@@ -28,7 +28,7 @@ userRouter
   //   const username = req.params.username
   // })
 
-  .get('/:username', (req, resp, next)  => {
+  .get('/:username', (req, resp)  => {
     const username = req.params.username
 
     userController.get(username, (err,res) => {
@@ -65,6 +65,26 @@ userRouter
       }
       resp.status(201).json(respObj)
     })
+  })
+
+  .update('/:username','/',(req,resp) => {
+    userController.set(req.body, (err,res) => {
+      let respObj
+      if(err) {
+        respObj = {
+          status: "error",
+          msg: err.message
+        }
+        return resp.status(400).json(respObj)
+      }
+      respObj = {
+        status: "success",
+        msg: res
+      }
+      resp.status(200).json(respObj)
+    })
+
+
   })
 
   .delete('/:username',(req,resp) => {
