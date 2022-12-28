@@ -134,7 +134,7 @@ describe('User', () => {
 
     it ('can not delete a user when it does not exist', (done) => {
       //Asks for anon existing user user
-      userController.delete('noUser', (err,result) => {
+      userController.delete('invalid', (err,result) => {
         expect(err).to.not.be.equal(null)
         expect(result).to.be.equal(null)
         done()

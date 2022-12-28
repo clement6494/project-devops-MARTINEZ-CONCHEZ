@@ -139,7 +139,7 @@ describe('User REST API', () => {
     it (' can not delete a user that doesn t exist', (done) => {
       // request a non existing user
       chai.request(app)
-        .delete('/user/noUser')
+        .delete('/user/invalid')
         .then((res) => {
           chai.expect(res).to.have.status(400)
           chai.expect(res.body.status).to.equal('error')
