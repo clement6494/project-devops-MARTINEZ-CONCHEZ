@@ -286,7 +286,7 @@ I had an issue with the vtx so i used this command to start minikube without it.
 ```bash
 minikube status
 ```
-
+* Go in you folder
 ## Deploy our app using Manifest YAML files
 
 * Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file :
