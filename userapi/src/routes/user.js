@@ -72,9 +72,9 @@ userRouter
   })
 
   .delete('/:username',(req,resp) => {
-    const usertodelete = req.params.username   // will only delete username and so the route of access to account need to dele namm firstname
+    const usertodelete = req.params.username  
 
-    userController.delete(usertodelete, (err,res) => {
+    userController.del(usertodelete, (err,res) => {
       let respObj
       if(err) {
         respObj = {
