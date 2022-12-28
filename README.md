@@ -50,16 +50,16 @@ This project aim to implement a web API app using Redis and an environment in or
   
   3 - Install application
 
-Go to the [user-api](./user-api/) directory of the application (where `package.json` file located) and run:
+Go to the [userapi](./userapi/) directory of the application (where `package.json` file located) and run:
 
   ```bash
   npm install 
   ```
 
 ## Use the application
-  1 - start a sever
+  1 - start a server
   
-  From the [user-api](./user-api/) directory of the repository, run:
+  From the [userapi](./user-api/) directory of the repository, run:
 
 ```bash
 npm run start
@@ -72,7 +72,7 @@ npm run start
 ```bash
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"username":"cconchez", "firstname":"clement", "lastname":"conchez"}' \
+  --data '{"username":"sergkudinov", "firstname":"sergei", "lastname":"kudinov"}' \
   http://localhost:3000/user
 ```
 It should output:
@@ -81,17 +81,18 @@ It should output:
 {"status":"success","msg":"OK"}
 ```  
 
-After, if you go to <http://localhost:3000/user/cconchez>, with "cconchez" being the username that you had in your POST data, it will display in the browser the following, with correspondance to the data that you posted:  
+After, if you go to <http://localhost:3000/user/sergkudinov>, with "cconchez" being the username that you had in your POST data, it will display in the browser the following, with correspondance to the data that you posted:  
 
 ```bash
-{"status":"success","msg":{"firstname":"clement","lastname":"conchez"}}
+{"status":"success","msg":{"firstname":"sergei","lastname":"kudinov"}}
 ```
 
-You can also use POST, GET , UPDDATE and DELETE.
+You can also use POST, GET , and DELETE.
+UPDATE wasn't finished because we didn't undersood well what was the ID in the model given of username,firstname,lastname. So we didn't know what souldn't be change and used as ID.
 
 ## Test the application 
 
-Go to the [user-api](./user-api/) directory of the application (where `package.json` file located) and run:
+Go to the [userapi](./userapi/) directory of the application (where `package.json` file located) and run:
 
 ```bash
 npm run test
@@ -135,7 +136,7 @@ docker build -t clement6494/userapi .
 ```
 ("-t clement6494/userapi) is optional and respresent the name we give to the image)
 
-- In the [user-api](./user-api/) directory of the repo (i.e. where there is the [Dockerfile](/user-api/Dockerfile) ),run this in order to pull the image:
+- In the [userapi](./userapi/) directory of the repo (i.e. where there is the [Dockerfile](/userapi/Dockerfile) ),run this in order to pull the image:
 
 ```bash
 docker pull clement6494/userapi
