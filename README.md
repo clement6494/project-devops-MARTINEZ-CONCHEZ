@@ -110,7 +110,9 @@ Go to the [userapi](./userapi/) directory of the application (where `package.jso
 npm run test
 ``` 
 All 12 tests should be passed :  
+
 ![image](images/1_npmruntest.PNG)
+
 # 2. Application of CI/CD pipeline using GitHub Actions and Heroku
 
 * Continuous Integration is done with **GitHub Actions** :
