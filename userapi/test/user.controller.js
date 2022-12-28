@@ -113,7 +113,7 @@ describe('User', () => {
 
 
   //test for delete method
-  describe( 'Delete',() => {
+  /*describe( 'Delete',() => {
 
     it('delete a user by his username', (done) => {
     // First create a user to make this unit test independant from the others
@@ -141,7 +141,7 @@ describe('User', () => {
       })
     })
 
-  })
+  })*/
 
 
 })

@@ -74,7 +74,7 @@ userRouter
   })
 */
 
-  .delete('/:username',(req,resp) => {
+  /*.delete('/:username',(req,resp) => {
     const usertodelete = req.params.username  
 
     userController.delete(usertodelete, (err,res) => {
@@ -95,6 +95,6 @@ userRouter
 
     })
 
-  })
+  })*/
   
 module.exports = userRouter

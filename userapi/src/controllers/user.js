@@ -78,7 +78,7 @@ module.exports = {
 */
   
   // Create Delete method
-  delete: (username, callback) => {
+  /*delete: (username, callback) => {
     // Check parameters
     if(!username)
       return callback(new Error("Please enter a user name"), null)
@@ -91,6 +91,6 @@ module.exports = {
         callback(new Error("user doesn t exist"), null )
     })
 
-  }
+  }*/
 
 }

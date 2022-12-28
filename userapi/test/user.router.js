@@ -107,7 +107,7 @@ describe('User REST API', () => {
 
 
     // test for the delete method
-  describe( 'DELETE /user' , () => {
+  /*describe( 'DELETE /user' , () => {
 
     it ('deletes a user  ', (done) => {
       const user= {
@@ -153,7 +153,7 @@ describe('User REST API', () => {
         })
     })
 
-  })
+  })*/
 
 
 
