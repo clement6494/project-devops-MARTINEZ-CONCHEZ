@@ -360,4 +360,4 @@ because i can't start the pod it's not working here.
 - Clément CONCHEZ-BOUEYTOU: <clement.conchezboueytou@ece.edu.fr> - ING4 gp5
 
 Copyright © Adrien Martinez & Clément CONCHEZ-BOUEYTOU, 2022
-![image](images/LogoECE.PNG)
+![image](images/LogoECE.PNG=100)
