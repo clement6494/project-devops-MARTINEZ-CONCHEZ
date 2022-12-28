@@ -51,11 +51,11 @@ https://github.com/clement6494/project-devops-MARTINEZ-CONCHEZ.git
 
   This app is written with Nodejs and uses Redis database.
   
-  1 - [install NodeJs](https://nodejs.org/en/download/)
+  1 * [install NodeJs](https://nodejs.org/en/download/)
   
-  2 - [install REDIS](https://redis.io/download)
+  2 * [install REDIS](https://redis.io/download)
   
-  3 - Install application
+  3 * Install application
 
 Go to the [userapi](./userapi/) directory of the application (where `package.json` file located) and run:
 
@@ -65,7 +65,7 @@ Go to the [userapi](./userapi/) directory of the application (where `package.jso
 ![image](images/1_npminstall.png)
 
 ## Use the application
-  1 - start a server
+  1 * start a server
   
   From the [userapi](./user-api/) directory of the repository, run:
 
@@ -115,10 +115,10 @@ All 12 tests should be passed :
 
 # 2. Application of CI/CD pipeline using GitHub Actions and Heroku
 
-- Continuous Integration is done with **GitHub Actions** :
+* Continuous Integration is done with **GitHub Actions** :
   CI builds automatically and tests our project.
 
-- Continuous Delivery using **Heroku** :
+* Continuous Delivery using **Heroku** :
   CD shoulds deploy the project.
   To link the Github repo to Heroku, we added a secret key named {secrets.HEROKU_API_KEY} .
   (only theorical, we didn't trusted the app enough to give our credit card inormations so we couldn't test it out)
@@ -152,7 +152,7 @@ vagrant up
 
 * It should have created the VM in VirtualBox
 
-![image](images//3_vmcreated.png)
+![image](images/3_vmcreated.png)
 
 * We can now test the connection with SSH and the following command:
 ```bash
@@ -179,11 +179,11 @@ We use Dockerto package our app into standardized containers executable componen
 
 ## Installation
 
-  - [Docker Desktop](https://www.docker.com/get-started)
+  * [Docker Desktop](https://www.docker.com/get-started)
   
 ## Usage
 
-- build an image of our app and pushed it in Docker Hub .
+* build an image of our app and pushed it in Docker Hub .
 
 ```bash
 docker build -t ad123450/userapi .      
@@ -196,33 +196,33 @@ You should see this in you Docker Destop:
 
 ![image](images/4_dockerdesktopimage.png)
 
-- In the [userapi](./userapi/) directory of the repo (i.e. where there is the [Dockerfile](/userapi/Dockerfile) ),run this in order to pull the image:
+* In the [userapi](./userapi/) directory of the repo (i.e. where there is the [Dockerfile](/userapi/Dockerfile) ),run this in order to pull the image:
 
 ```bash
 docker pull ad123450/userapi
 ```
-- Check if  the image is correctly pulled to your local Docker images repo with the following command:
+* Check if  the image is correctly pulled to your local Docker images repo with the following command:
 
 ```bash
 docker images
 ```
 
-- Create the container:
+* Create the container:
 
 ```bash
 docker run -p 12345:3000 -d ad123450/userapi
 ```
 ![image](images/4_dockerrunimage.png)
 
-- To check running containers open another powershell page with our folder in with the following command  :
+* To check running containers open another powershell page with our folder in with the following command  :
 
 ```bash
 docker ps
 ```  
 ![image](images/4_verifycontainerworking.png)
 
-- Now you can open <http://localhost:12345/>, and the app should be launched:
-- 
+* Now you can open <http://localhost:12345/>, and the app should be launched:
+
 ![image](images/4_resultimageonlocalhost12345.png)
 
 # 5. Organization of Container with Docker Compose
@@ -231,7 +231,7 @@ Docker Compose is a tool that was developed to help define and share multi-conta
 
 ## Configuration
 
-- Add to the [`docker-compose.yaml`](docker-compose.yaml) file the userapi image :
+* Add to the [`docker-compose.yaml`](docker-compose.yaml) file the userapi image :
 example:
 
 ```yaml
@@ -250,11 +250,11 @@ services:
 
 ## Test
 
-- Run the container :
+* Run the container :
 ```bash
 docker-compose up
 ```
-- And go to <http://localhost:5000/> on your browser.
+* And go to <http://localhost:5000/> on your browser.
 should expect:
 
 
