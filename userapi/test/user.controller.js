@@ -90,7 +90,7 @@ describe('User', () => {
     // 2. Then, check if the result of the get method is correct
       userController.get(user.username , (err, result) => {
         expect(err).to.not.be.equal(null)
-        expect(result).to.be.equal({
+        expect(result).to.be.deep.equal({
           firstname: 'Sergei',
         lastname: 'Kudinov'
         })
