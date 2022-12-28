@@ -333,6 +333,7 @@ minikube dashboard
 The web application will be accessible at <http://localhost:5000/> :
  
 ![image](images/6_localhost30005000.PNG)
+because i can't start the pod it's not working here.
 
 ##  Usefull links
 
