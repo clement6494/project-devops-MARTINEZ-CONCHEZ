@@ -37,6 +37,7 @@ describe('User REST API', () => {
         })
         .catch((err) => {
            throw err
+           done()
         })
     })
     
@@ -56,6 +57,7 @@ describe('User REST API', () => {
         })
         .catch((err) => {
            throw err
+           done()
         })
     })
   })
@@ -86,6 +88,7 @@ describe('User REST API', () => {
           })
           .catch((err) => {
             throw err
+            done()
           })
 
         })
@@ -106,6 +109,7 @@ describe('User REST API', () => {
         })
         .catch((err) => {
           throw err
+          done()
         })
     })
 
@@ -140,6 +144,7 @@ describe('User REST API', () => {
           })
           .catch((err) => {
             throw err
+            done()
           })
 
         })
@@ -160,6 +165,7 @@ describe('User REST API', () => {
         })
         .catch((err) => {
           throw err
+          done()
         })
     })
 
