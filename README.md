@@ -148,7 +148,7 @@ vagrant up
 ```
 ![image](images/3_thirdcommand.PNG)
 
-* It should have created the VM in VirtualBox
+* It should have created the VM in VirtualBox:
 
 ![image](images/3_vmcreated.PNG)
 
