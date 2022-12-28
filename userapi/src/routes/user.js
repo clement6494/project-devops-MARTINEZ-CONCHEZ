@@ -50,7 +50,9 @@ userRouter
   })
 
   
+
  /**  .put('/',(req,resp) => {
+
     userController.update(req.body, (err,res) => {
       let respObj
       if(err) {
@@ -68,8 +70,10 @@ userRouter
     })
 
 
+
   })
 */
+
   .delete('/:username',(req,resp) => {
     const usertodelete = req.params.username  
 
