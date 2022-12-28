@@ -17,7 +17,7 @@ module.exports = {
       if(!res) {
         // i.e. user doesn t exist
         // Save to DB
-        db.hset(user.username, userObj, (err, res) => {
+        db.hmset(user.username, userObj, (err, res) => {
           if (err) return callback(err, null)
           callback(null, res) // Return callback
         })
