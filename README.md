@@ -57,7 +57,7 @@ Go to the [user-api](./user-api/) directory of the application (where `package.j
   ```
 
 ## Use the application
-  1 - start a sever
+  1 - start a server
   
   From the [user-api](./user-api/) directory of the repository, run:
 
