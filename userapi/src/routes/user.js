@@ -51,7 +51,7 @@ userRouter
 
   
 
-  .put('/:username','/',(req,resp) => {
+  .put('/',(req,resp) => {
     userController.update(req.body, (err,res) => {
       let respObj
       if(err) {
