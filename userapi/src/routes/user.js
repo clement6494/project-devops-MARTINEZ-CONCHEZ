@@ -66,10 +66,10 @@ userRouter
         msg: res
       }
       resp.status(200).json(respObj)
-    })*/
+    })
 
 
-  })
+  })*/
 
   .delete('/:username',(req,resp) => {
     const usertodelete = req.params.username  
