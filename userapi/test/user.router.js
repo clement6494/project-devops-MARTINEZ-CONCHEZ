@@ -113,7 +113,7 @@ describe('User REST API', () => {
   })
 
       // test for the update method
-      describe( 'PUT /user' )
+      //describe( 'PUT /user' )
 
 
     // test for the delete method
