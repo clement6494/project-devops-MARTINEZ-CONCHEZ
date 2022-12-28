@@ -68,9 +68,9 @@ describe('User REST API', () => {
 
     it ('gets a user s firstname and lastname ', (done) => {
       const user= {
-        username: 'cconchez',
-        firstname: 'Clement',
-        lastname: 'Conchez'
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
       }
       // creat the user
       userController.create(user, () => {
@@ -121,9 +121,9 @@ describe('User REST API', () => {
 
     it ('deletes a user  ', (done) => {
       const user= {
-        username: 'cconchez',
-        firstname: 'Clement',
-        lastname: 'Conchez'
+        username: 'sergkudinov',
+        firstname: 'Sergei',
+        lastname: 'Kudinov'
       }
       // creat the user
       userController.create(user, () => {
