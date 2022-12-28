@@ -271,16 +271,22 @@ you need to run containerized applications in production and at scale.
 * Start Minikube with:
 
 ```bash
-minikube start
+set HTTP_PROXY=http://<proxy hostname:port>
+set HTTPS_PROXY=https://<proxy hostname:port>
+set NO_PROXY=localhost,127.0.0.1,10.96.0.0/12,192.168.59.0/24,192.168.49.0/24,192.168.39.0/24
+
+minikube start --no-vtx-check
 ```
+I had an issue with the vtx so i used this command to start minikube without it.
+
+![image](images/6_minikubestart.PNG)
 
 * Verify that everything is OK with:
 
 ```bash
 minikube status
 ```
-(if VT-d/AMD-x technology isn't enabled check is your processor supports it (VT for Intel, AMD for AMD) and then enable it viaa BIOS.)
-
+* Go in you folder
 ## Deploy our app using Manifest YAML files
 
 * Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file :
