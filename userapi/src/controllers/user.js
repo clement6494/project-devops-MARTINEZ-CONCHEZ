@@ -48,15 +48,11 @@ module.exports = {
   },
 
   // Create Update method
-
+/** 
   update: (user, callback) => {
     // Check parameters
     if(!user.username)
       return callback(new Error("Wrong user parameters"), null)
-    
-
-    
-
     // TODO check if user already exists
     db.hgetall(user.username, function(err , res) {
       if (err) return callback(err, null)
@@ -79,7 +75,7 @@ module.exports = {
 
   },
 
-
+*/
   
   // Create Delete method
   delete: (username, callback) => {
