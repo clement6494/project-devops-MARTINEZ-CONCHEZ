@@ -139,25 +139,25 @@ Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
 ```bash
 vagrant init hashicorp/bionic64
 ```
-![image](images/3_secondcommand.png)
+![image](images/3_secondcommand.PNG)
 
 * Next we complete the vargrantfile to create a VM in the /iac directory and we use the command :
 
 ```bash
 vagrant up
 ```
-![image](images/3_thirdcommand.png)
+![image](images/3_thirdcommand.PNG)
 
 * It should have created the VM in VirtualBox
 
-![image](images/3_vmcreated.png)
+![image](images/3_vmcreated.PNG)
 
 * We can now test the connection with SSH and the following command:
 ```bash
 vagrant ssh
 ``` 
 
-![image](3_fourthcommand.png)
+![image](3_fourthcommand.PNG)
 
 * We can naviguate through directories and see that our [userapi](/userapi/) folder in our local repository is shared with the VM. 
   
@@ -342,3 +342,6 @@ The web application will be accessible at <http://localhost:5000/> :
 - Adrien Martinez: <adrien.martinez@ece.edu.fr> - ING4 gp5
 
 - Clément CONCHEZ-BOUEYTOU: <clement.conchezboueytou@ece.edu.fr> - ING4 gp5
+
+Copyright © Adrien Martinez & Clément CONCHEZ-BOUEYTOU, 2022
+![image](images/LogoECE.PNG)
