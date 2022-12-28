@@ -51,7 +51,7 @@ userRouter
 
   
 
-  .put('/:username','/',(req,resp) => {
+ /* .put('/:username','/',(req,resp) => {
     userController.update(req.body, (err,res) => {
       let respObj
       if(err) {
@@ -66,7 +66,7 @@ userRouter
         msg: res
       }
       resp.status(200).json(respObj)
-    })
+    })*/
 
 
   })
