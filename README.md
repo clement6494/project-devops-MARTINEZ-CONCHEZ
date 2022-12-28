@@ -32,6 +32,7 @@ This project aim to implement a web API app using Redis and an environment in or
 - [6. Organization of Docker with Kubernetes](#6-organization-of-docker-with-kubernetes)
   - [Installation of Minikube](#installation-of-minikube)
   - [Deploy our app using Manifest YAML files](#deploy-our-app-using-manifest-yaml-files)
+- [Usefull links](#usefull-links)
 - [Authors](#authors)
 
 
@@ -39,7 +40,7 @@ This project aim to implement a web API app using Redis and an environment in or
 
 # 1. Creation of the NodeJS web application
 
-## HInstallation
+## Installation
 
   This app is written with Nodejs and uses Redis database.
   
