@@ -59,7 +59,7 @@ describe('User REST API', () => {
         })
     })
   })
-done()
+
   // describe('GET /user', ()=> {
   //   // TODO Create test for the get method
   // })
@@ -111,7 +111,7 @@ done()
 
 
   })
-  done()
+  
 
       // test for the update method
       //describe( 'PUT /user' )
@@ -164,7 +164,7 @@ done()
     })
 
   })
-done()
+
 
 
 })
