@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: userapi
-        image: clement6494
+        image: ad123450
         ports:
           - containerPort: 3000
         env:
