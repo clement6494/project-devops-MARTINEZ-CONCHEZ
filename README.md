@@ -16,19 +16,19 @@ This project aim to implement a web API app using Redis and an environment in or
   - [Usage](#use-the-application)
   - [Test](#test-the-application)
 - [2. Application of CI/CD pipeline uning Heroku and GitHub Actions](#2-application-of-cicd-pipeline-uning-heroku-and-github-actions)
-  - [Installation](#installation-1)
+  - [Installation](#installation)
   - [Configuration of the workflow](#configuration-of-the-workflow)
   - [Test with Heroku](#test-with-heroku)
 - [3. Application of the IaC approach](#3-application-of-the-iac-approach)
-  - [Installation](#installation-2)
+  - [Installation](#installation-1)
   - [Creating, Configuring and Provisionning our VM](#creating-configuring-and-provisionning-our-vm)
-  - [Test](#test-1)
+  - [Test](#test)
 - [4. Build Docker image of the application](#4-build-docker-image-of-the-application)
-  - [Installation](#installation-3)
-  - [Usage](#usage-1)
+  - [Installation](#installation-2)
+  - [Usage](#usage)
 - [5. Organization of Container with Docker Compose](#5-organization-of-container-with-docker-compose)
   - [Configuration](#configuration)
-  - [Test](#test-2)
+  - [Test](#test-1)
 - [6. Organization of Docker with Kubernetes](#6-organization-of-docker-with-kubernetes)
   - [Installation of Minikube](#installation-of-minikube)
   - [Deploy our app using Manifest YAML files](#deploy-our-app-using-manifest-yaml-files)
@@ -110,6 +110,8 @@ Go to the [userapi](./userapi/) directory of the application (where `package.jso
 npm run test
 ``` 
 All 12 tests should be passed :  
+
+![image](images/1_npmruntest.PNG)
 
 # 2. Application of CI/CD pipeline using GitHub Actions and Heroku
 
@@ -289,13 +291,15 @@ minikube status
 * Go in you folder
 ## Deploy our app using Manifest YAML files
 
-* Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file :
+* Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file : // we didn't find the right configuration of the deployement to deploy the userapi correctly
 
 * run:
 
 ```bash
 kubectl apply -f deployment.yml
 ```
+![image](images/6_deployementscreation.PNG)
+
 * Once done, configure the [`./k8s/service.yml`](./k8s/service.yml) file :
 
 * run :
@@ -303,36 +307,44 @@ kubectl apply -f deployment.yml
 ```bash
 kubectl apply -f service.yml
 ```
+![image](images/6_servicescreation.PNG)
 
 * Check the deployment running with :
   
 ```bash
 kubectl get deployments
 ```  
+![image](images/6_getdeployment.PNG)
+
 * the state of services with :
 
 ```bash
 kubectl get services
 ```
+![image](images/6_getservices.PNG)
+
 * And if the pods are running with :
 
 ```bash
 kubectl get pods
 ``` 
+![image](images/6_getpods.PNG)
+
 [dashboard](https://minikube.sigs.k8s.io/docs/handbook/dashboard/) functionnality of Minikube gives a summary of the status through a dashboard running the following command will open a webpage :  
 
 ```bash
 minikube dashboard
 ```
+![image](images/6_dashboard.PNG)
 
 * Run the following command to open the port :
 ```bash
  kubectl port-forward service/userapi-service 5000:3000
 ```
-
 The web application will be accessible at <http://localhost:5000/> :
  
 ![image](images/6_localhost30005000.PNG)
+because i can't start the pod it's not working here.
 
 ##  Usefull links
 
