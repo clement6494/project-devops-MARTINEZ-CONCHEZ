@@ -77,7 +77,7 @@ userRouter
   .delete('/:username',(req,resp) => {
     const usertodelete = req.params.username  
 
-    userController.del(usertodelete, (err,res) => {
+    userController.delete(usertodelete, (err,res) => {
       let respObj
       if(err) {
         respObj = {
