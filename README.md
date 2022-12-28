@@ -289,13 +289,14 @@ minikube status
 * Go in you folder
 ## Deploy our app using Manifest YAML files
 
-* Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file :
-
+* Configure the [`./k8s/deployment.yml`](./k8s/deployment.yml) file : // We couldn't pull our image at that is the reson userapi-deployement can't be done
 * run:
 
 ```bash
 kubectl apply -f deployment.yml
 ```
+![image](images/6_deployementscreation.PNG)
+
 * Once done, configure the [`./k8s/service.yml`](./k8s/service.yml) file :
 
 * run :
@@ -303,27 +304,35 @@ kubectl apply -f deployment.yml
 ```bash
 kubectl apply -f service.yml
 ```
+![image](images/6_servicescreation.PNG)
 
 * Check the deployment running with :
   
 ```bash
 kubectl get deployments
 ```  
+![image](images/6_getdeployment.PNG)
+
 * the state of services with :
 
 ```bash
 kubectl get services
 ```
+![image](images/6_getservices.PNG)
+
 * And if the pods are running with :
 
 ```bash
 kubectl get pods
 ``` 
+![image](images/6_getpods.PNG)
+
 [dashboard](https://minikube.sigs.k8s.io/docs/handbook/dashboard/) functionnality of Minikube gives a summary of the status through a dashboard running the following command will open a webpage :  
 
 ```bash
 minikube dashboard
 ```
+![image](images/6_dashboard.PNG)
 
 * Run the following command to open the port :
 ```bash
