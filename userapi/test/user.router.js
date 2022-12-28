@@ -119,7 +119,7 @@ describe('User REST API', () => {
       userController.create(user, () => {
         // get the user
         chai.request(app)
-          .del('/user' + user.username)
+          .delete('/user' + user.username)
           
           .then((res) => {
             chai.expect(res).to.have.status(200)
@@ -129,7 +129,6 @@ describe('User REST API', () => {
           })
           .catch((err) => {
             throw err
-            done()
           })
 
         })
@@ -140,7 +139,7 @@ describe('User REST API', () => {
     it (' can not delete a user that doesn t exist', (done) => {
       // request a non existing user
       chai.request(app)
-        .del('/user/noUser')
+        .delete('/user/noUser')
         .then((res) => {
           chai.expect(res).to.have.status(400)
           chai.expect(res.body.status).to.equal('error')
@@ -150,7 +149,6 @@ describe('User REST API', () => {
         })
         .catch((err) => {
           throw err
-          done()
         })
     })
 
